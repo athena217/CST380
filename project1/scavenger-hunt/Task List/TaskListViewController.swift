@@ -21,6 +21,7 @@ class TaskListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Scavenger Hunt"
 
         // UI candy: Hide 1st / top cell separator
         tableView.tableHeaderView = UIView()
