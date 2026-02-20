@@ -4,7 +4,7 @@ Submitted by: Athena Lopez
 
 BeReal is an app that allow users to upload a photo and view posts from others. This project recreates those features using Parse as backend supporting user registration, login, posting photos with captions, browsing a feed, pull to refresh, and infinite scroll.
 
-Time spent: 8 hours spent in total
+Time spent: 9 hours spent in total
 
 ## Required Features
 
@@ -32,8 +32,11 @@ The following **additional** features are implemented:
 ## Video Walkthrough
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0;">
- <iframe src="https://www.loom.com/embed/d810f90330ec4eb4be736e06d57539a2" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+ <iframe 
+  src="https://www.loom.com/embed/d810f90330ec4eb4be736e06d57539a2" 
+  frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
 </div>
+
 ## Notes
 
 Challenges I encountered were mainly technical issues with the desktop
