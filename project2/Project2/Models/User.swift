@@ -1,9 +1,7 @@
 //
 //  User.swift
-//  lab-insta-parse
-//
-//  Created by Charlie Hieger on 11/28/22.
-//
+//  Project 2 - BeReal Clone //
+
 
 import Foundation
 
