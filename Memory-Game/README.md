@@ -46,6 +46,7 @@ Here's a walkthrough of implemented user stories:
 ## Notes
 
 Describe any challenges encountered while building the app.
+
 Challenges I faced while building this app would have to be some technical issues and sometimes with the card logic to work correctly.
 
 ## License
