@@ -2,23 +2,23 @@
 
 Submitted by: **Athena Lopez**
 
-**BeReal** is an app that introduces ... [TODO] 
+**BeReal** is an app that introduces users to a simple way to stay connected with their friends by sharing everyday moments.
 
-Time spent: **7** hours spent in total
+Time spent: **13** hours spent in total
 
 ## Required Features
 
 The following **required** functionality is completed:
 
 - [x] User can launch camera to take photo instead of photo library
-  - [x] Users without iPhones to demo this feature can manually add unique photos to their simulator's Photos app
-- [ ] Users can intereact with posts via comments, comments will have user data such as username and name
-- [ ] Posts have a time and location attached to them
+- [x] Users without iPhones to demo this feature can manually add unique photos to their simulator's Photos app
+- [x] Users can intereact with posts via comments, comments will have user data such as username and name
+- [x] Posts have a time and location attached to them
 - [x] Users are not able to see other users’ photos until they upload their own.
  
 The following **optional** features are implemented:
 
-- [ ] User receive notifcation when it is time to post
+- [x] User receive notifcation when it is time to post
 
 The following **additional** features are implemented:
 
@@ -26,9 +26,7 @@ The following **additional** features are implemented:
 
 ## Video Walkthrough
 
-Here is a reminder on how to embed Loom videos on GitHub. Feel free to remove this reminder once you upload your README. 
-
-[Guide]](https://www.youtube.com/watch?v=GA92eKlYio4) .
+<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/141b63ca57ca4b67a1402f44d6062bae" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
 ## Notes
 
