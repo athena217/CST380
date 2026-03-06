@@ -29,7 +29,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             self?.logOut()
         }
 
-        // TODO: Pt 1 - Check for cached user for persisted log in.
         if User.current != nil {
             login()
         }
@@ -42,8 +41,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     private func logOut() {
-        // TODO: Pt 1 - Log out Parse user.
-        // This will also remove the session from the Keychain, log out of linked services and all future calls to current will return nil.
         User.logout { [weak self] result in
 
             switch result {

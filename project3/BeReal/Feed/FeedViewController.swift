@@ -4,8 +4,6 @@
 //
 
 import UIKit
-
-// TODO: P1 1 - Import Parse Swift
 import ParseSwift
 
 class FeedViewController: UIViewController {
@@ -15,11 +13,25 @@ class FeedViewController: UIViewController {
 
     private var posts = [Post]() {
         didSet {
-            // Reload table view data any time the posts variable gets updated.
             tableView.reloadData()
         }
     }
+    
+    private var isLoadingMore = false
+    private var limit = 10
 
+    
+    private func showLoadingFooter() {
+        let spinner = UIActivityIndicatorView(style: .medium)
+        spinner.startAnimating()
+        spinner.frame = CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 44)
+        tableView.tableFooterView = spinner
+    }
+    
+    private func hideLoadingFooter() {
+        tableView.tableFooterView = nil
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,52 +41,80 @@ class FeedViewController: UIViewController {
 
         tableView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(onPullToRefresh), for: .valueChanged)
+        
+        refreshControl.tintColor = .white
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        queryPosts()
+        if posts.isEmpty {
+            queryPosts()
+        }
     }
 
     private func queryPosts(completion: (() -> Void)? = nil) {
-        // TODO: Pt 1 - Query Posts
         // https://github.com/parse-community/Parse-Swift/blob/3d4bb13acd7496a49b259e541928ad493219d363/ParseSwift.playground/Pages/2%20-%20Finding%20Objects.xcplaygroundpage/Contents.swift#L66
-
-        // 1. Create a query to fetch Posts
-        // 2. Any properties that are Parse objects are stored by reference in Parse DB and as such need to explicitly use `include_:)` to be included in query results.
-        // 3. Sort the posts by descending order based on the created at date
-        // 4. TODO: Pt 2 - Only include results created yesterday onwards
-        // 5. TODO: Pt 2 - Limit max number of returned posts
+        
         let yesterdayDate = Calendar.current.date(byAdding: .day, value: (-1), to: Date())!
         
         let query = Post.query()
             .include("user")
             .order([.descending("createdAt")])
             .where("createdAt" >= yesterdayDate)
-            .limit(10)
-                           
+            .limit(limit)
+            .skip(posts.count)
+        
+        if isLoadingMore && !refreshControl.isRefreshing {
+            showLoadingFooter()
+        }
+        
         // Find and return posts that meet query criteria (async)
         query.find { [weak self] result in
+            guard let self = self else { return }
+            
             switch result {
-            case .success(let posts):
-                // Update the local posts property with fetched posts
-                self?.posts = posts
+            case .success(let newPosts):
+                if self.isLoadingMore {
+                    self.posts.append(contentsOf: newPosts)
+                } else {
+                    self.posts = newPosts
+                }
+                
             case .failure(let error):
-                self?.showAlert(description: error.localizedDescription)
+                self.showAlert(description: error.localizedDescription)
             }
-
-            // Call the completion handler (regardless of error or success, this will signal the query finished)
-            // This is used to tell the pull-to-refresh control to stop refresshing
+            
+            self.refreshControl.endRefreshing()
+            self.hideLoadingFooter()
+            self.isLoadingMore = false
+            
             completion?()
         }
     }
 
     @IBAction func onLogOutTapped(_ sender: Any) {
         showConfirmLogoutAlert()
+        NotificationManager.shared.cancelReminders()
+        
+        User.logout { [weak self] result in
+            switch result {
+            case .success:
+                print("Logged out")
+                DispatchQueue.main.async {
+                    self?.navigationController?.popToRootViewController(animated: true)
+                }
+            case .failure(let error):
+                print("Logout error: \(error.localizedDescription)")
+            }
+        }
     }
 
     @objc private func onPullToRefresh() {
+        isLoadingMore = false
+        posts.removeAll()
+        queryPosts()
+        
         refreshControl.beginRefreshing()
         queryPosts { [weak self] in
             self?.refreshControl.endRefreshing()
@@ -117,5 +157,14 @@ extension FeedViewController: UITableViewDataSource {
 }
 
 extension FeedViewController: UITableViewDelegate {
-    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let height = scrollView.frame.size.height
+        
+        if offsetY > contentHeight - height * 1.5 && !isLoadingMore {
+            isLoadingMore = true
+            queryPosts()
+        }
+    }
 }

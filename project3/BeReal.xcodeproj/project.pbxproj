@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C7D61C32F5A42660015F4D2 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7D61C22F5A42660015F4D2 /* Comment.swift */; };
+		7C7D61C92F5A68560015F4D2 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7D61C82F5A68560015F4D2 /* NotificationManager.swift */; };
 		7CC2BC592F5122AF002B5692 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC2BC582F5122AF002B5692 /* CommentViewController.swift */; };
 		CB13E51F2913A16C008F45BB /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB13E51E2913A16C008F45BB /* PostCell.swift */; };
 		CB13E5212913B10B008F45BB /* DateFormatter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB13E5202913B10B008F45BB /* DateFormatter+Extensions.swift */; };
@@ -28,6 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7C7D61C22F5A42660015F4D2 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		7C7D61C82F5A68560015F4D2 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		7CC2BC582F5122AF002B5692 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		CB13E51E2913A16C008F45BB /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		CB13E5202913B10B008F45BB /* DateFormatter+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extensions.swift"; sourceTree = "<group>"; };
@@ -66,6 +70,7 @@
 			children = (
 				CB73D398290E3B4A00C12538 /* LoginViewController.swift */,
 				CB6997502911044D007EDA6B /* SignUpViewController.swift */,
+				7C7D61C82F5A68560015F4D2 /* NotificationManager.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -145,6 +150,7 @@
 			children = (
 				CB7896FC29371C3C00635932 /* User.swift */,
 				CB7896FE29371C4900635932 /* Post.swift */,
+				7C7D61C22F5A42660015F4D2 /* Comment.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -233,10 +239,12 @@
 				CBCDFAFE291144DA001F1CF1 /* PostViewController.swift in Sources */,
 				CBE72850293741370005CA57 /* ViewController+Extensions.swift in Sources */,
 				CB73D399290E3B4A00C12538 /* LoginViewController.swift in Sources */,
+				7C7D61C92F5A68560015F4D2 /* NotificationManager.swift in Sources */,
 				CB73D395290E3B4A00C12538 /* AppDelegate.swift in Sources */,
 				CB6997532911354B007EDA6B /* FeedViewController.swift in Sources */,
 				CB7896FD29371C3C00635932 /* User.swift in Sources */,
 				CB6997512911044D007EDA6B /* SignUpViewController.swift in Sources */,
+				7C7D61C32F5A42660015F4D2 /* Comment.swift in Sources */,
 				7CC2BC592F5122AF002B5692 /* CommentViewController.swift in Sources */,
 				CB13E5212913B10B008F45BB /* DateFormatter+Extensions.swift in Sources */,
 				CB73D397290E3B4A00C12538 /* SceneDelegate.swift in Sources */,
