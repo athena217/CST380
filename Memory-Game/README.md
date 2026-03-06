@@ -2,7 +2,7 @@
 
 Submitted by: **Athena Lopez**
 
-**Memory Game** is an app that where players flip cards, match pairs, and challenge their memory.
+**Memory Game** is an app that allows players to flip cards, match pairs, and challenge their memory.
 
 Time spent: **6** hours spent in total
 
@@ -46,6 +46,7 @@ Here's a walkthrough of implemented user stories:
 ## Notes
 
 Describe any challenges encountered while building the app.
+
 Challenges I faced while building this app would have to be some technical issues and sometimes with the card logic to work correctly.
 
 ## License
