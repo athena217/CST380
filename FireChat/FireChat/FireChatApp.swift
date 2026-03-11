@@ -10,13 +10,22 @@ import FirebaseCore
 
 @main
 struct FireChatApp: App {
+    @State private var authManager: AuthManager
+
     init() {
         FirebaseApp.configure()
+        authManager = AuthManager()
     }
 
     var body: some Scene {
         WindowGroup {
-            LoginView()
+            if authManager.user != nil {
+                ChatView()
+                    .environment(authManager)
+            } else {
+                LoginView()
+                    .environment(authManager)
+            }
         }
     }
 }
