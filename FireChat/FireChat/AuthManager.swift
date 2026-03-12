@@ -20,7 +20,7 @@ class AuthManager {
     
     private var handle: AuthStateDidChangeListenerHandle?
     
-    init() {
+    init(isMocked: Bool = false) {
         handle = Auth.auth().addStateDidChangeListener { [weak self] _, user in
             self?.user = user
             self?.isSignedIn = user != nil

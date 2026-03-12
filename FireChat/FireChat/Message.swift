@@ -6,8 +6,6 @@
 //
 
 import Foundation
-import SwiftUI
-
 
 struct Message: Hashable, Identifiable, Codable {
     let id: String
