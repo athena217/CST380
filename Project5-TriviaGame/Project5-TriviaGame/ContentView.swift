@@ -7,6 +7,7 @@
 
 import SwiftUI
 struct ContentView: View {
+
     @State private var numberOfQuestions = 10
     @State private var selectedCategory = 9
     @State private var selectedDifficulty = "easy"
@@ -15,100 +16,145 @@ struct ContentView: View {
 
     let categories = [
         (9, "General Knowledge"),
-        (17, "Science"),
+        (27, "Animals"),
+        (25, "Art"),
+        (32, "Cartoons & Animations"),
         (18, "Computers"),
+        (22, "Geography"),
         (23, "History"),
+        (12, "Music"),
+        (17, "Science"),
         (21, "Sports"),
-        (22, "Geography")
+        (15, "Video Games")
     ]
-    
+
     let questionTypes = [
         ("any", "Any"),
         ("multiple", "Multiple Choice"),
         ("boolean", "True/False")
     ]
-    
+
     let timerOptions = [
         10, 30, 60, 120, 300, 3600
     ]
 
     var body: some View {
+
         NavigationView {
-            VStack(spacing: 20) {
-                Text("Trivia Game")
-                    .font(.largeTitle.bold())
-                    .padding(.top, 20)
-                Form {
-                    Section(header: Text("Number of Questions")) {
-                        Stepper(value: $numberOfQuestions, in: 5...20) {
-                            Text("\(numberOfQuestions)")
-                                .font(.headline)
-            }
-                    }
-                    
-                    // Category Picker
-                    Section(header: Text("Category")) {
-                        Picker("Select Category", selection: $selectedCategory) {
-                            ForEach(categories, id: \.0) { category in
-                                Text(category.1).tag(category.0)
+
+            ZStack {
+                Color(red: 0.88, green: 0.95, blue: 0.88)
+                    .ignoresSafeArea()
+                VStack(spacing: 20) {
+                    Text("Trivia Game")
+                        .font(.largeTitle.bold())
+                        .foregroundColor(Color(red: 0.0, green: 0.4, blue: 0.2))
+                        .padding(.top, 20)
+
+                    Form {
+                        Section(header:
+                            Text("Number of Questions")
+                                .foregroundColor(.black)
+                        ) {
+                            Stepper(value: $numberOfQuestions, in: 5...20) {
+                                Text("\(numberOfQuestions)")
+                                    .font(.headline)
                             }
                         }
-                    }
-                    // Difficulty Picker
-                    Section(header: Text("Difficulty")) {
-                        Picker("Difficulty", selection: $selectedDifficulty) {
-                            Text("Easy").tag("easy")
-                            Text("Medium").tag("medium")
-                            Text("Hard").tag("hard")
-                        }
-                        .pickerStyle(.segmented)
-                    }
-                    
-                    // Type Picker
-                    Section(header: Text("Question Type")) {
-                        Picker("Type", selection: $selectedType) {
-                            ForEach(questionTypes, id: \.0) { type in
-                                Text(type.1).tag(type.0)
+                        Section(header:
+                            Text("Category")
+                                .foregroundColor(.black)
+                        ) {
+                            Picker("Select Category", selection: $selectedCategory) {
+                                ForEach(categories, id: \.0) { category in
+                                    Text(category.1).tag(category.0)
+                                }
                             }
                         }
-                        .pickerStyle(.segmented)
-                    }
-                    
-                    // Timer
-                    Section(header: Text("Timer Duration")) {
-                        Picker("Timer", selection: $selectedTimer) {
-                            ForEach(timerOptions, id: \.self) { time in
-                                Text(formatTime(time)).tag(time)
+                        Section(header:
+                            Text("Difficulty")
+                                .foregroundColor(.black)
+                        ) {
+                            Picker("Difficulty", selection: $selectedDifficulty) {
+                                Text("Easy").tag("easy")
+                                Text("Medium").tag("medium")
+                                Text("Hard").tag("hard")
+                            }
+                            .pickerStyle(.segmented)
+                        }
+
+                        Section(header:
+                            Text("Question Type")
+                                .foregroundColor(.black)
+                        ) {
+                            Picker("Type", selection: $selectedType) {
+                                ForEach(questionTypes, id: \.0) { type in
+                                    Text(type.1).tag(type.0)
+                                }
+                            }
+                            .pickerStyle(.segmented)
+                        }
+
+                        Section(header:
+                            Text("Timer Duration")
+                                .foregroundColor(.black)
+                        ) {
+                            Picker("Timer", selection: $selectedTimer) {
+                                ForEach(timerOptions, id: \.self) { time in
+                                    Text(formatTime(time)).tag(time)
+                                }
                             }
                         }
+
                     }
-                }
-                .scrollContentBackground(.hidden)
-                
-                // Start Game Button
-                NavigationLink(destination:
-                                TriviaGameView(
-                                    amount: numberOfQuestions,
-                                    category: selectedCategory,
-                                    difficulty: selectedDifficulty,
-                                    type: selectedType,
-                                    timer: selectedTimer
+                    .scrollContentBackground(.hidden)
+                    .background(
+                        RoundedRectangle(cornerRadius: 16)
+                            .stroke(Color(red: 0.3, green: 0.7, blue: 0.4), lineWidth: 2)
+                            .background(
+                                RoundedRectangle(cornerRadius: 16)
+                                    .fill(Color.white.opacity(0.85))
+                            )
+                    )
+                    .padding(.horizontal)
+                    NavigationLink(destination:
+                        TriviaGameView(
+                            amount: numberOfQuestions,
+                            category: selectedCategory,
+                            difficulty: selectedDifficulty,
+                            type: selectedType,
+                            timer: selectedTimer
+                        )
+                    ) {
+
+                        Text("Start Game")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(
+                                LinearGradient(
+                                    colors: [
+                                        Color(red: 0.4, green: 0.8, blue: 0.5),
+                                        Color(red: 0.1, green: 0.5, blue: 0.2)
+                                    ],
+                                    startPoint: .top,
+                                    endPoint: .bottom
                                 )
-                ) {
-                    Text("Start Game")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(Color.blue)
-                        .cornerRadius(12)
-                        .padding(.horizontal)
+                            )
+                            .cornerRadius(12)
+                            .shadow(radius: 4)
+                            .padding(.horizontal)
+                    }
+
+                    .padding(.bottom, 20)
+
                 }
-                .padding(.bottom, 20)
             }
             .navigationBarHidden(true)
         }
     }
+
     func formatTime(_ seconds: Int) -> String {
         switch seconds {
         case 10: return "10 seconds"
@@ -122,7 +168,6 @@ struct ContentView: View {
         }
     }
 }
-
 #Preview {
     ContentView()
 }
