@@ -121,7 +121,6 @@ struct ContentView: View {
                             timer: selectedTimer
                         )
                     ) {
-
                         Text("Start Game")
                             .font(.headline)
                             .foregroundColor(.white)
@@ -141,9 +140,7 @@ struct ContentView: View {
                             .shadow(radius: 4)
                             .padding(.horizontal)
                     }
-
                     .padding(.bottom, 20)
-
                 }
             }
             .navigationBarHidden(true)
