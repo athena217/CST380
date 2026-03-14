@@ -39,9 +39,7 @@ struct ContentView: View {
     ]
 
     var body: some View {
-
         NavigationView {
-
             ZStack {
                 Color(red: 0.88, green: 0.95, blue: 0.88)
                     .ignoresSafeArea()
@@ -50,7 +48,6 @@ struct ContentView: View {
                         .font(.largeTitle.bold())
                         .foregroundColor(Color(red: 0.0, green: 0.4, blue: 0.2))
                         .padding(.top, 20)
-
                     Form {
                         Section(header:
                             Text("Number of Questions")
@@ -82,7 +79,6 @@ struct ContentView: View {
                             }
                             .pickerStyle(.segmented)
                         }
-
                         Section(header:
                             Text("Question Type")
                                 .foregroundColor(.black)
@@ -94,7 +90,6 @@ struct ContentView: View {
                             }
                             .pickerStyle(.segmented)
                         }
-
                         Section(header:
                             Text("Timer Duration")
                                 .foregroundColor(.black)
