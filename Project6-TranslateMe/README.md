@@ -4,7 +4,7 @@ Submitted by: **Athena Lopez**
 
 **TranslateMe** is an app that ... [TODO] 
 
-Time spent: **X** hours spent in total
+Time spent: **7** hours spent in total
 
 ## Required Features
 
