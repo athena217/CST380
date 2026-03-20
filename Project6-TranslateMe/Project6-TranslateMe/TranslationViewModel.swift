@@ -14,7 +14,6 @@ class TranslationViewModel: ObservableObject {
     @Published var inputText = ""
     @Published var outputText = ""
     @Published var history: [Translation] = []
-    
     @Published var sourceLanguage = "en"
     @Published var targetLanguage = "es"
     
@@ -37,7 +36,9 @@ class TranslationViewModel: ObservableObject {
     }
     
     func translate() async {
-        guard !inputText.isEmpty else { return }
+        guard !inputText.isEmpty else {
+            return
+        }
         
         do {
             let result = try await api.translate(
@@ -53,9 +54,7 @@ class TranslationViewModel: ObservableObject {
                 translated: result,
                 timestamp: Date()
             )
-            
             firestore.save(translation)
-            
         } catch {
             print("Translation failed:", error)
         }

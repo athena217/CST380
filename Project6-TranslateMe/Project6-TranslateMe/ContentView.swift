@@ -22,14 +22,16 @@ struct ContentView: View {
                 TextField("Enter text", text: $vm.inputText)
                     .textFieldStyle(.roundedBorder)
                     .padding(.horizontal)
+                    .padding(.vertical, 20)
                     .background(Color.green.opacity(0.2))
                     .foregroundColor(.green.darker())
-                    .cornerRadius(8)
-            
+                    .cornerRadius(10)
+                    .padding(.horizontal)
+
                 HStack(spacing: 20) {
                     VStack {
                         Text("From")
-                            .font(.subheadline)
+                            .font(.headline)
                             .foregroundColor(.white)
                         Picker("Source", selection: $vm.sourceLanguage) {
                             ForEach(vm.languages.keys.sorted(), id: \.self) { code in
@@ -44,7 +46,7 @@ struct ContentView: View {
                     }
                     VStack {
                         Text("To")
-                            .font(.subheadline)
+                            .font(.headline)
                             .foregroundColor(.white)
                         Picker("Target", selection: $vm.targetLanguage) {
                             ForEach(vm.languages.keys.sorted(), id: \.self) { code in

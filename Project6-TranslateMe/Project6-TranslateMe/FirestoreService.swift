@@ -42,7 +42,6 @@ class FirestoreService {
                         timestamp: (data["timestamp"] as? Timestamp)?.dateValue() ?? Date()
                     )
                 }
-                
                 completion(items)
             }
     }
