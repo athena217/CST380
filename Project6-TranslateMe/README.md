@@ -2,23 +2,23 @@
 
 Submitted by: **Athena Lopez**
 
-**TranslateMe** is an app that ... [TODO] 
+**TranslateMe** is an app that allows users to translate text from one language to another with the ability to view and manage their translation history.
 
-Time spent: **7** hours spent in total
+Time spent: **11** hours spent in total
 
 ## Required Features
 
 The following **required** functionality is completed:
 
-- [ ] Users open the app to a TranslationMe home page with a place to enter a word, phrase or sentence, a button to translate, and another field that should initially be empty
-- [ ] When users tap translate, the word written in the upper field translates in the lower field. The requirement is only that you can translate from one language to another.
-- [ ] A history of translations can be stored (in a scroll view in the same screen, or a new screen)
-- [ ] The history of translations can be erased
+- [x] Users open the app to a TranslationMe home page with a place to enter a word, phrase or sentence, a button to translate, and another field that should initially be empty
+- [x] When users tap translate, the word written in the upper field translates in the lower field. The requirement is only that you can translate from one language to another.
+- [x] A history of translations can be stored (in a scroll view in the same screen, or a new screen)
+- [x] The history of translations can be erased
  
 The following **optional** features are implemented:
 
-- [ ] Add a variety of choices for the languages
-- [ ] Add UI flair
+- [x] Add a variety of choices for the languages
+- [x] Add UI flair
 
 The following **additional** features are implemented:
 
@@ -26,15 +26,11 @@ The following **additional** features are implemented:
 
 ## Video Walkthrough
 
-Here's a walkthrough of implemented user stories:
-
-Here is a reminder on how to embed Loom videos on GitHub. Feel free to remove this reminder once you upload your README. 
-
-[Guide]](https://www.youtube.com/watch?v=GA92eKlYio4) .
+<div style="position: relative; padding-bottom: 210.9375%; height: 0;"><iframe src="https://www.loom.com/embed/d87f862e6feb4138aa3802cee1e1ad38" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+Some challenges I encountered included technical issues with the desktop and implementing support for multiple languages.
 
 ## License
 
